@@ -12,7 +12,7 @@ namespace Exception__Reflection_task
         public int no;
         public string name;
         public double price;
-        Type type;
+        public Type type;
         public Product(string name,double price,Type type)
         {
             no = ++count;
@@ -23,7 +23,7 @@ namespace Exception__Reflection_task
         }
         public override string ToString()
         {
-            return name+"   Price:"+price+" $";
+            return name + "   type:"+type+"   Price:"+price+" $ " ;
         }
     }
 

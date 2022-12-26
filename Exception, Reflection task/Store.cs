@@ -75,17 +75,65 @@ namespace Exception__Reflection_task
                 Console.WriteLine("Please enter valid index");
                 goto restartIndex;
             }
-            for (int i = index-1; i+1 < products.Length; i++) //sehv ola biler
+            for (int i = index-1; i+1 < products.Length; i++) 
             {
                     products[i] = products[i + 1];
             }
             Array.Resize(ref products, products.Length - 1);
+            Console.Clear();
             Console.WriteLine("The product has been successfully deleted");
             
             foreach (Product product in products)
             {
                 Console.WriteLine(count2+". "+product);
                 count2++;
+            }
+        }
+        public void FilterProductsByType()
+        {
+            int count = 0;
+            Console.Write("Select the type you are looking for:(bakery/drink/meat)");
+            Type type;
+            restarttype:
+            string typestr = Console.ReadLine().ToLower();
+            switch (typestr)
+            {
+                case "meat":
+                    type = Type.meat;
+                    break;
+                case "bakery":
+                    type = Type.bakery;
+                    break;
+                case "drink":
+                    type = Type.drink;
+                    break;
+                default:
+                    Console.WriteLine("Please enter valid type");
+                    goto restarttype;
+                    break;
+            }
+            foreach (Product product in products)
+            {
+                if (product.type == type)
+                {
+                    count++;
+                    Console.WriteLine(count+". "+product);
+                }
+            }
+        }
+        public void FilterProductByName()
+        {
+            int count = 0;
+            Console.Write("Enter the name of the product you are looking for:");
+            string name = Console.ReadLine().ToLower();
+            foreach (Product product in products)
+            {
+                if (product.name == name)
+                {
+                    count++;
+                    Console.WriteLine(count + ". " + product);
+                }
+
             }
         }
     }

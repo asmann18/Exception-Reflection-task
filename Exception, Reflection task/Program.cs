@@ -23,7 +23,20 @@
                     store.RemoveProductByNo();
                     goto restart;
                     break;
+                case "3":
+                    Console.Clear();
+                    store.FilterProductsByType();
+                    goto restart;
+                    break; 
+                case "4":
+                    Console.Clear();
+                    store.FilterProductByName();
+                    goto restart;
+                    break;
                 default:
+                    Console.Clear();
+                    Console.WriteLine("Please enter valid number");
+                    goto restart;
                     break;
             }
 
